@@ -456,9 +456,8 @@ jobs:
           -DCMAKE_SYSTEM_VERSION=%SDK%
 
           call vcvars32.bat
-          cd %REPO_NAME%\out
-          ls
-          msbuild -m Telegram.sln /nologo /p:Configuration=Debug,Platform=Win32
+          cd %REPO_NAME%\out && ls
+          msbuild -m %REPO_NAME%\out\Telegram.sln /nologo /p:Configuration=Debug,Platform=Win32
 
       - name: Move artifact.
         if: env.UPLOAD_ARTIFACT == 'true'
